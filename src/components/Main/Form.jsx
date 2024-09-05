@@ -111,7 +111,7 @@ const Form = ({ onView }) => {
           <div className="border-[1px] rouned-lg w-[456px] p-[10px] shadow-sm flex items-center justify-between mt-2">
             <input
               className={`bg-inherit  ${isClicked ? "hidden-placeholder" : ""}`}
-              placeholder={"Tegishli miqdorni kiriting.."}
+              placeholder={"Tegishli miqdorni kiriting"}
               type="number"
               ref={usdtInput}
               onChange={inputHandler}
