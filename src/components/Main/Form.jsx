@@ -14,16 +14,10 @@ const Form = ({ onView }) => {
         ...prevState,
         [inputName]: false,
       }));
+      mxnInput.current.value = "";
     }, 500);
   };
 
-  const handleBlur = (inputName) => {
-    // Відновлюємо видимість плейсхолдера, коли інпут втрачає фокус
-    setPlaceholderVisibility((prevState) => ({
-      ...prevState,
-      [inputName]: true,
-    }));
-  };
   const [listIsVisible, setListIsVisible] = useState(false);
   const MXN = {
     name: "MXN",
@@ -106,21 +100,11 @@ const Form = ({ onView }) => {
               type="number"
               ref={usdtInput}
               onChange={inputHandler}
-              onFocus={() => handleFocus("usdtInput")}
-              onBlur={() => handleBlur("usdtInput")}
+              onFocus={() => {
+                handleFocus("usdtInput");
+              }}
             ></input>
-            {/* <input
-              className="bg-inherit"
-              placeholder={
-                placeholderVisibility.usdtInput
-                  ? "Tegishli miqdorni kiriting.."
-                  : ""
-              }
-              type="number"
-              ref={usdtInputRef}
-              onFocus={() => handleFocus("usdtInput")}
-              onBlur={() => handleBlur("usdtInput")}
-            /> */}
+
             <div className="flex gap-4 items-center">
               <p className="text-[#D6850D]">Hammasi</p>
               <div className="bg-[#f1f3f0] flex items-center gap-2 cursor-pointer p-2">
@@ -142,7 +126,7 @@ const Form = ({ onView }) => {
           <div className="border-[1px] rouned-lg w-[456px] p-[10px] shadow-sm flex items-center justify-between mt-2">
             <input
               className="bg-inherit w-max"
-              placeholder="Miqdorni kiriting"
+              // placeholder="Miqdorni kiriting"
               type="text"
               ref={mxnInput}
             ></input>
@@ -211,7 +195,6 @@ const Form = ({ onView }) => {
               type="number"
               maxLength="8"
               onFocus={() => handleFocus("walletInput")}
-              onBlur={() => handleBlur("walletInput")}
             ></input>
             {/* <input
               className="bg-inherit"
