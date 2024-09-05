@@ -2,21 +2,40 @@ import { useEffect, useRef, useState } from "react";
 
 // eslint-disable-next-line react/prop-types
 const Form = ({ onView }) => {
-  const [placeholderVisibility, setPlaceholderVisibility] = useState({
-    usdtInput: true,
-    walletInput: true,
-  });
+  const [isClicked, setIsClicked] = useState(false);
 
-  const handleFocus = (inputName) => {
-    // Затримка на 500 мс перед приховуванням плейсхолдера
+  // Обробник події при натисканні на інпут
+  const handleFocus = () => {
     setTimeout(() => {
-      setPlaceholderVisibility((prevState) => ({
-        ...prevState,
-        [inputName]: false,
-      }));
+      setIsClicked(true);
       mxnInput.current.value = "";
-    }, 500);
+    }, 500); // Затримка у 500 мс
   };
+
+  const [isClicked2, setIsClicked2] = useState(false);
+
+  // Обробник події при натисканні на інпут
+  const handleFocus2 = () => {
+    setTimeout(() => {
+      setIsClicked2(true);
+    }, 500); // Затримка у 500 мс
+  };
+
+  // const [placeholderVisibility, setPlaceholderVisibility] = useState({
+  //   usdtInput: true,
+  //   walletInput: true,
+  // });
+
+  // const handleFocus = (inputName) => {
+  //   // Затримка на 500 мс перед приховуванням плейсхолдера
+  //   setTimeout(() => {
+  //     setPlaceholderVisibility((prevState) => ({
+  //       ...prevState,
+  //       [inputName]: false,
+  //     }));
+  //     mxnInput.current.value = "";
+  //   }, 500);
+  // };
 
   const [listIsVisible, setListIsVisible] = useState(false);
   const MXN = {
@@ -91,17 +110,13 @@ const Form = ({ onView }) => {
           <span className="text-[#8b8d8a]">Sotish</span>
           <div className="border-[1px] rouned-lg w-[456px] p-[10px] shadow-sm flex items-center justify-between mt-2">
             <input
-              className="bg-inherit"
-              placeholder={
-                placeholderVisibility.usdtInput
-                  ? "Tegishli miqdorni kiriting.."
-                  : ""
-              }
+              className={`bg-inherit  ${isClicked ? "hidden-placeholder" : ""}`}
+              placeholder={"Tegishli miqdorni kiriting.."}
               type="number"
               ref={usdtInput}
               onChange={inputHandler}
               onFocus={() => {
-                handleFocus("usdtInput");
+                handleFocus();
               }}
             ></input>
 
@@ -185,16 +200,14 @@ const Form = ({ onView }) => {
           <div className="border-[1px] rouned-lg w-[456px] py-[18px] px-[10px] shadow-sm flex items-center justify-between  mt-2">
             <input
               ref={walletInput}
-              className="bg-inherit w-full"
-              // placeholder="Hisob raqami yoki telefon raqamini kiriting"
-              placeholder={
-                placeholderVisibility.walletInput
-                  ? "Tegishli miqdorni kiriting.."
-                  : ""
-              }
+              className={`bg-inherit w-full ${
+                isClicked2 ? "hidden-placeholder" : ""
+              }`}
+              placeholder="Hisob raqami yoki telefon raqamini kiriting"
+              // placeholder="Tegishli miqdorni kiriting.."
               type="number"
               maxLength="8"
-              onFocus={() => handleFocus("walletInput")}
+              onFocus={() => handleFocus2()}
             ></input>
             {/* <input
               className="bg-inherit"

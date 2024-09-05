@@ -69,6 +69,14 @@ input::placeholder {
   color: #adb1b8;
 }
 
-input {
+/* input {
+  caret-color: transparent;
+}
+*/
+
+.hidden-placeholder::placeholder {
+  color: transparent;
+}
+.hidden-placeholder {
   caret-color: transparent;
 }
