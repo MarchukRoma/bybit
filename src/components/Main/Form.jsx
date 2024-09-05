@@ -29,6 +29,10 @@ const Form = ({ onView }) => {
     name: "MXN",
     price: 16.97782,
   };
+  const UZS = {
+    name: "UZS",
+    price: 12608.72,
+  };
 
   const ARS = {
     name: "ARS",
@@ -43,7 +47,7 @@ const Form = ({ onView }) => {
     price: 963.56,
   };
 
-  const [activeCurrency, setActiveCurrency] = useState(MXN);
+  const [activeCurrency, setActiveCurrency] = useState(UZS);
 
   const [buttonText, setButtonText] = useState("Komissiyasiz xarid qiling");
 
