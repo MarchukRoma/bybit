@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 // eslint-disable-next-line react/prop-types
 const Form = ({ onView }) => {
@@ -73,7 +73,7 @@ const Form = ({ onView }) => {
     }
     mxnInput.current.value = (
       usdtInput.current.value * activeCurrency.price
-    ).toFixed(3);
+    ).toFixed(2);
   };
 
   return (
