@@ -117,7 +117,7 @@ const Form = ({ onView }) => {
           </div>
         </div>
         <div className="self-end pr-[34px] text-[#8b8d8a] text-[14px] mt-2">
-          Balans 3141.42 USDT{" "}
+          Balans 93141.42 USDT{" "}
           <span className="text-[#D6850D]">Hozir transfer</span>
         </div>
         <div className="w-[456px]">
