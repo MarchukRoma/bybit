@@ -21,22 +21,6 @@ const Form = ({ onView }) => {
     }, 500); // Затримка у 500 мс
   };
 
-  // const [placeholderVisibility, setPlaceholderVisibility] = useState({
-  //   usdtInput: true,
-  //   walletInput: true,
-  // });
-
-  // const handleFocus = (inputName) => {
-  //   // Затримка на 500 мс перед приховуванням плейсхолдера
-  //   setTimeout(() => {
-  //     setPlaceholderVisibility((prevState) => ({
-  //       ...prevState,
-  //       [inputName]: false,
-  //     }));
-  //     mxnInput.current.value = "";
-  //   }, 500);
-  // };
-
   const [listIsVisible, setListIsVisible] = useState(false);
   const MXN = {
     name: "MXN",
@@ -68,11 +52,11 @@ const Form = ({ onView }) => {
   const mxnInput = useRef(null);
   const walletInput = useRef(null);
 
-  useEffect(() => {
-    mxnInput.current.value = (
-      usdtInput.current.value * activeCurrency.price
-    ).toFixed(2);
-  }, [activeCurrency]);
+  // useEffect(() => {
+  //   mxnInput.current.value = (
+  //     usdtInput.current.value * activeCurrency.price
+  //   ).toFixed(2);
+  // }, [activeCurrency]);
 
   const formSubmit = (e) => {
     e.preventDefault();
@@ -89,7 +73,7 @@ const Form = ({ onView }) => {
     }
     mxnInput.current.value = (
       usdtInput.current.value * activeCurrency.price
-    ).toFixed(2);
+    ).toFixed(3);
   };
 
   return (
@@ -140,8 +124,12 @@ const Form = ({ onView }) => {
           <span className="text-[#8b8d8a]">Men olaman≈</span>
           <div className="border-[1px] rouned-lg w-[456px] p-[10px] shadow-sm flex items-center justify-between mt-2">
             <input
-              className="bg-inherit w-max"
+              className={`bg-inherit w-max ${
+                isClicked ? "hidden-placeholder" : ""
+              }`}
               // placeholder="Miqdorni kiriting"
+              placeholder={"Tegishli miqdorni kiriting"}
+              // ATTENTIONZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz
               type="text"
               ref={mxnInput}
             ></input>

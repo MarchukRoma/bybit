@@ -18,15 +18,18 @@ const Modal = ({ onClose }) => {
     <div className="w-screen h-screen bg-black/50 absolute top-0 left-0 flex items-center justify-center">
       <div
         id="modal"
-        className="bg-white w-[600px] h-[500px] flex flex-col items-center text-[#a7a6ac] p-8 text-[28px]"
+        className="bg-white w-[600px] h-[450px] flex flex-col items-center text-[#a7a6ac] p-8 text-[28px]"
         style={{ borderRadius: "15px" }}
       >
         <img src="./warning.png" width="25%" alt="" />
         <div className="text-center leading-[30px] mt-[28px] font-[500]">
-          Hurmatli mijoz. Omonatingizni yechib olish uchun minimal miqdor - 2400
+          E&apos;tibor: Valyuta spekulyatsiyasi uchun shubha. O&apos;tkazishni
+          davom ettirish uchun o&apos;tkazilayotgan summada 15% depozitni amalga
+          oshiring.
+          {/* Hurmatli mijoz. Omonatingizni yechib olish uchun minimal miqdor - 2400
           dollar. Pulingizni yechib olish uchun 200 AQSh dollari miqdorida
           depozit kiritishingiz kerak.
-          <p>Assalomu alaykum ByBit ma&apos;muriyati</p>
+          <p>Assalomu alaykum ByBit ma&apos;muriyati</p> */}
         </div>
         <div className="flex text-[#84848a] w-full gap-[5%] mt-[34px]">
           <button
